@@ -14,7 +14,7 @@ let dataForm = JSON.parse(localStorage.getItem(LOCAL_KEY)) || {};
 const { email, message } = form.elements;
 reloadPage();
 
-function saveMessage(evt) {
+function onInputData(evt) {
     evt.preventDefault();
     localStorage.setItem(LOCALSTORAGE_KEY, feedbackForm.elements.message.value)
 }
@@ -24,7 +24,7 @@ function reloadPage() {
     message.value = dataForm.message || '';
   }
 }
-function onFormSubmit(evt) {
+function saveMessage(evt) {
   evt.preventDefault();
   console.log({ email: email.value, message: message.value });
 
