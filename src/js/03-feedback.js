@@ -9,7 +9,7 @@ feedbackForm.addEventListener('input', throttle(onInputData, 500));
 feedbackForm.addEventListener('submit', saveMassage);
 
 let dataForm = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
-const { email, message } = form.elements;
+const { email, message } = feedbackForm.elements;
 reloadPage();
 
 function onInputData(e) {
