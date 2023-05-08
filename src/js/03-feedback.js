@@ -1,35 +1,38 @@
 import throttle from 'lodash.throttle'
+//локальне сховище
+const LOCALSTORAGE_KEY = 'feedback-form-state';
 
-const LOCALSTORAGE_KEY = 'feedback-form-state'
-const feedbackForm = document.querySelector(".feedback-form")
-// локальне сховище
-
+feedbackForm = document.querySelector('.feedback-form');
 // Відстежуй на формі подію input
 // Зроби так, щоб сховище оновлювалось не частіше, ніж раз на 500 мілісекунд.
-feedbackForm.addEventListener("input", throttle(onInputData, 500))
-feedbackForm.addEventListener("submit", saveMessage)
+feedbackForm.addEventListener('input', throttle(onInputData, 500));
+feedbackForm.addEventListener('submit', saveMassage);
 
 let dataForm = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
-const { email, message } = feedbackForm.elements;
+const { email, message } = form.elements;
 reloadPage();
 
-function onInputData(evt) {
-    dataForm = { email: email.value, message: message.value };
-  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(dataForm));  
+function onInputData(e) {
+  dataForm = { email: email.value, message: message.value };
+  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(dataForm));
 }
+
 function reloadPage() {
+    
   if (dataForm) {
     email.value = dataForm.email || '';
     message.value = dataForm.message || '';
   }
 }
-function saveMessage(evt) {
-  evt.preventDefault();
+
+function saveMassage(e) {
+  e.preventDefault();
   console.log({ email: email.value, message: message.value });
 
   if (email.value === '' || message.value === '') {
-    return alert('Fill in all the fields!');
+    return alert('Please fill in all the fields!');
   }
+
   localStorage.removeItem(LOCALSTORAGE_KEY);
   e.currentTarget.reset();
   dataForm = {};
