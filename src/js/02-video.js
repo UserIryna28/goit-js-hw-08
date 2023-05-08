@@ -28,34 +28,3 @@ player.setCurrentTime(JSON.parse(localStorage.getItem(CURRENT_TIME_KEY)))
             break;
     }
 });
-// Зберігай час відтворення у локальне сховище. Нехай ключем для сховища буде рядок "videoplayer-current-time".
-
-// Ініціалізуй плеєр у файлі скрипта
-// const iframe = document.querySelector('iframe');
-//     const player = new Player(iframe);
-//  localStorage.setItem('videoplayer-current-time',seconds)
-    // player.on('timeupdate', throttle(1000) {
-    //     console.log('played the video!');
-    // });
-//  player.on('timeupdate', function (event) {
-//       Усередині потрібно написати код, взяти секунди та записати їх у сховище
-//  });
-    
-
-    // player.getVideoTitle().then(function(title) {
-    //     console.log('title:', title);
-    // });
-    // 6.Під час перезавантаження сторінки скористайся методом setCurrentTime() з метою відновлення відтворення зі збереженої позиції.
-// player.setCurrentTime(30.456).then(function(seconds) {
-    
-// }).catch(function(error) {
-//     switch (error.name) {
-//         case 'RangeError':
-            
-//             break;
-
-//         default:
-            
-//             break;
-//     }
-// });
