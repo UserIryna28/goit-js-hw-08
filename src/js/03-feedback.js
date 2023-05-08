@@ -1,8 +1,8 @@
 import throttle from 'lodash.throttle'
 //локальне сховище
-const LOCALSTORAGE_KEY = 'feedback-form-state';
 
-feedbackForm = document.querySelector('.feedback-form');
+const feedbackForm = document.querySelector('.feedback-form');
+const LOCALSTORAGE_KEY = 'feedback-form-state';
 // Відстежуй на формі подію input
 // Зроби так, щоб сховище оновлювалось не частіше, ніж раз на 500 мілісекунд.
 feedbackForm.addEventListener('input', throttle(onInputData, 500));
@@ -18,7 +18,7 @@ function onInputData(e) {
 }
 
 function reloadPage() {
-    
+
   if (dataForm) {
     email.value = dataForm.email || '';
     message.value = dataForm.message || '';
