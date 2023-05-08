@@ -13,3 +13,12 @@ function saveMessage(evt) {
     evt.preventDefault();
     localStorage.setItem(LOCALSTORAGE_KEY, feedbackForm.elements.message.value)
 }
+
+function onFormSubmit(e) {
+  e.preventDefault();
+  console.log({ email: email.value, message: message.value });
+
+  if (email.value === '' || message.value === '') {
+    return alert('Fill in all the fields!');
+  }
+}
